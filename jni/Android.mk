@@ -21,12 +21,13 @@ LOCAL_CFLAGS := -DBOOST_ASIO_HASH_MAP_BUCKETS=1021 \
 				-DBOOST_ASIO_SEPARATE_COMPILATION \
 				-DBOOST_ASIO_ENABLE_CANCELIO \
 				-DTORRENT_USE_ICONV=0 \
-				-DTORRENT_USE_TOMMATH 
+				-DTORRENT_USE_TOMMATH
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include \
-					$(LOCAL_PATH)/boost 
+					$(LOCAL_PATH)/boost
 
 LOCAL_SRC_FILES := 	src/alert.cpp \
+					src/alert_manager.cpp \
 					src/allocator.cpp \
 					src/asio.cpp \
 					src/assert.cpp \
@@ -51,6 +52,7 @@ LOCAL_SRC_FILES := 	src/alert.cpp \
 					src/file_pool.cpp \
 					src/file_storage.cpp \
 					src/gzip.cpp \
+					src/hasher.cpp \
 					src/GeoIP.c \
 					src/http_connection.cpp \
 					src/http_parser.cpp \
@@ -61,6 +63,7 @@ LOCAL_SRC_FILES := 	src/alert.cpp \
 					src/identify_client.cpp \
 					src/instantiate_connection.cpp \
 					src/ip_filter.cpp \
+					src/ip_voter.cpp \
 					src/lazy_bdecode.cpp \
 					src/logger.cpp \
 					src/lsd.cpp \
@@ -77,7 +80,6 @@ LOCAL_SRC_FILES := 	src/alert.cpp \
 					src/policy.cpp \
 					src/puff.cpp \
 					src/random.cpp \
-					src/rsa.cpp \
 					src/rss.cpp \
 					src/session.cpp \
 					src/session_impl.cpp \
@@ -107,6 +109,7 @@ LOCAL_SRC_FILES := 	src/alert.cpp \
 					src/utp_stream.cpp \
 					src/web_connection_base.cpp \
 					src/web_peer_connection.cpp \
+					src/xml_parse.cpp \
 					src/kademlia/dht_tracker.cpp \
 					src/kademlia/node.cpp \
 					src/kademlia/refresh.cpp \
@@ -115,9 +118,9 @@ LOCAL_SRC_FILES := 	src/alert.cpp \
 					src/kademlia/node_id.cpp \
 					src/kademlia/routing_table.cpp \
 					src/kademlia/traversal_algorithm.cpp
-					
+
 LOCAL_STATIC_LIBRARIES := libboost_system-gcc-mt-1_53 \
-						  libboost_filesystem-gcc-mt-1_53 
+						  libboost_filesystem-gcc-mt-1_53
 
 include $(BUILD_STATIC_LIBRARY)
 #include $(BUILD_SHARED_LIBRARY)
